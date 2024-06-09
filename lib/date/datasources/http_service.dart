@@ -1,5 +1,6 @@
 import 'dart:convert';
 import 'dart:io';
+import 'package:gemini_getx/core/constants/constants.dart';
 import 'package:gemini_getx/date/datasources/http_helper_service.dart';
 import 'package:gemini_getx/date/models/gemini_talk_model.dart';
 import 'package:http/http.dart';
@@ -54,7 +55,7 @@ class Network {
 
   static Map<String, String> paramsApiKey() {
     Map<String, String> params = {};
-    params.addAll({'key': " AIzaSyDICDyLuqVbMPiIU4I_0-u5tYfYh8dudBM"});
+    params.addAll({'key': GEMINI_API_KEY});
     return params;
   }
 

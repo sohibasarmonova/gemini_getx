@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
-
 <dict>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
@@ -47,7 +46,17 @@
 	<true/>
 	<key>UIApplicationSupportsIndirectInputEvents</key>
 	<true/>
-	<key>NSPhotoLibraryUsageDescription</key>
-    	<string>We need access to photo Library so that images can be saved</string>
+	<key>NSAppTransportSecurity</key>
+    <true/>
+    <key>NSSpeechRecognitionUsageDescription</key>
+    <true/>
+    <key>NSMicrophoneUsageDescription</key>
+    <true/>
+    <key>FLTEnableImpeller</key>
+    <false />
+    <key>NSMicrophoneUsageDescription</key>
+    <key/>
+    <key>NSPhotoLibraryUsageDescription</key>
+      <string>We need access to photo Library so that images can be saved</string>
 </dict>
 </plist>

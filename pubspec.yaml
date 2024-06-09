@@ -13,22 +13,47 @@ dependencies:
 
 
   cupertino_icons: ^1.0.6
+  # network
   http: ^0.13.3
   http_interceptor: ^1.0.2
+  dartz: ^0.10.1
   logger: ^1.1.0
-  image_picker: ^1.0.7
+
+
+  # file
+  image_picker: ^1.1.1
+  video_player: ^2.8.6
+
+  # speech
+  speech_to_text: ^6.6.2
+  flutter_tts: ^4.0.2
+  lottie: 3.0.0
+  flutter_linkify: ^6.0.0
+  # local_DB
+  hive: ^2.2.3
+  hive_flutter: ^1.1.0
+  path_provider: ^2.1.2
+
+  # getX
+  get: ^4.6.6
+
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
 
   flutter_lints: ^3.0.0
+  hive_generator: ^1.1.3
+  build_runner: ^2.1.11
+
 flutter:
 
   uses-material-design: true
 
-  # assets:
-  #   - images/a_dot_burr.jpeg
+  assets:
+     - assets/images/
+     - assets/videos/
+     - assets/animation/
 
   # fonts:
   #   - family: Schyler
