@@ -1,8 +1,18 @@
+
+
+
+
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
+import 'package:flutter_linkify/flutter_linkify.dart';
 import 'package:gemini_getx/date/models/message_model.dart';
 import 'package:gemini_getx/presentation/controller/home_controller.dart';
+import 'package:gemini_getx/presentation/pages/web_view_page.dart';
+import 'package:lottie/lottie.dart';
 
-Widget itemOfGeminiMessage(MessageModel message, HomeController homeController) {
+
+Widget itemOfGeminiMessage(
+    MessageModel message, HomeController homeController,BuildContext context) {
   return Container(
     width: double.infinity,
     padding: EdgeInsets.all(16),
@@ -16,8 +26,8 @@ Widget itemOfGeminiMessage(MessageModel message, HomeController homeController) 
             children: [
               Container(
                 width: 24,
-                child: Image.asset('assets/images/gemini_icon.png'),
-              ),
+                height: 24,
+                child: Lottie.asset('assets/animation/gemini_icon.json'),              ),
               GestureDetector(
                 onTap: () {
                   homeController.speakTTS(message.message!);
@@ -29,12 +39,19 @@ Widget itemOfGeminiMessage(MessageModel message, HomeController homeController) 
               )
             ],
           ),
-          Container(
-            margin: EdgeInsets.only(top: 15),
-            child: Text(
-              message.message!,
-              style: const TextStyle(
-                  color: Color.fromRGBO(173, 173, 176, 1), fontSize: 16),
+          GestureDetector(
+            child: Container(
+              margin: EdgeInsets.only(top: 15),
+              child: Linkify(
+                onOpen: (link) {
+                 Navigator.of(context).push( MaterialPageRoute(builder: (BuildContext context){
+                   return WebViewPage(url: link.url);
+                 }));
+                },
+                text: message.message!,
+                style: TextStyle(
+                    color: Color.fromRGBO(173, 173, 176, 1), fontSize: 16),
+              ),
             ),
           ),
         ],
@@ -42,3 +59,7 @@ Widget itemOfGeminiMessage(MessageModel message, HomeController homeController) 
     ),
   );
 }
+
+
+
+

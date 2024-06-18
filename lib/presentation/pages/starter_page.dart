@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:gemini_getx/core/constants/constants.dart';
 import 'package:gemini_getx/presentation/controller/starter_controller.dart';
 import 'package:gemini_getx/presentation/pages/home_page.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
+import 'package:lottie/lottie.dart';
 import 'package:video_player/video_player.dart';
 
 class StarterPage extends StatefulWidget {
@@ -21,6 +23,7 @@ class _StarterPageState extends State<StarterPage> {
   @override
   void initState() {
     super.initState();
+    starterController.speakTTS(welcomingMessage);
 starterController.initVideoPlayer();
 
   }
@@ -28,6 +31,7 @@ starterController.initVideoPlayer();
   @override
   void dispose() {
     starterController.stopVideoPlayer();
+    starterController.stopTTS();
     super.dispose();
   }
 
@@ -38,15 +42,15 @@ starterController.initVideoPlayer();
         backgroundColor: Colors.black,
         body: SafeArea(
           child: Container(
-            padding: EdgeInsets.symmetric(vertical: 40),
+            padding: EdgeInsets.only(bottom: 40),
             child: Column(
               children: [
                 Container(
-                  child: Image(
+                  height: 150,
                     width: 150,
-                    image: AssetImage('assets/images/gemini_logo.png'),
-                    fit: BoxFit.cover,
-                  ),
+                    child: Lottie.asset('assets/animation/gemini_logo.json'),
+
+
                 ),
                 Expanded(
                   child: starterController.videoPlayerController.value.isInitialized
@@ -55,20 +59,12 @@ starterController.initVideoPlayer();
                 ),
                 Container(
                   height: 50,
-                  //color: Colors.black,
                   decoration: BoxDecoration(
-                    // color: Colors.black,
                       border:Border.all(color: Colors.white),
                       borderRadius: BorderRadius.circular(25)
                   ),
-                  // height: 50,
                   child: MaterialButton(
-                    // color: Colors.black,
-
-
-                    // color: Colors.white,
-                    onPressed: (){
-                     // Navigator.pushReplacementNamed(context, HomePage.id);
+                         onPressed: (){
                        Get.offNamed(HomePage.id);
                     },
                     child: Text('Chat with Gemini', style: TextStyle(fontSize: 18,fontWeight: FontWeight.bold,color: Colors.white),),

@@ -28,7 +28,6 @@ dependencies:
   speech_to_text: ^6.6.2
   flutter_tts: ^4.0.2
   lottie: 3.0.0
-  flutter_linkify: ^6.0.0
   # local_DB
   hive: ^2.2.3
   hive_flutter: ^1.1.0
@@ -36,6 +35,14 @@ dependencies:
 
   # getX
   get: ^4.6.6
+
+  # common
+  flutter_linkify: ^6.0.0
+  url_launcher: ^6.0.20
+  shake: ^2.2.0
+  flutter_sensors:
+  webview_flutter: 3.0.0
+
 
 
 dev_dependencies:
